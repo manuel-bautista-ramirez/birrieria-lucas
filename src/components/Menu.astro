@@ -1,0 +1,102 @@
+---
+const menuItems = [
+  {
+    tipo: "Chivo",
+    img: "../../public/imgenes/birria.jpeg",
+    nombre: "Birria Tradicional",
+    desc: "Chivo de rancho cocido 10 horas",
+    extras: ["Incluye consomé y tortillas", "Acompañamientos extra"],
+  },
+  {
+    tipo: "Res",
+    img: "../../public/imgenes/barbacoa.jpeg",
+    nombre: "Birria Jugosa",
+    extras: ["Cortes especiales", "Paquetes familiares"],
+  },
+  {
+    tipo: "Tacos",
+    img: "../../public/imgenes/tacos.jpeg",
+    nombre: "Tacos de Chivo",
+    desc: "Tacos con birria jugosa",
+    extras: ["Incluye consomé", "Salsa especial"],
+  },
+  {
+    tipo: "Quesabirria",
+    img: "../../public/imgenes/quesa.jpeg",
+    nombre: "Quesabirria",
+    desc: "Tortilla dorada con queso y birria",
+    extras: ["Incluye consomé", "Doble queso opcional"],
+  },
+  {
+    tipo: "Para Llevar",
+    img: "../../public/imgenes/llevar.jpeg",
+    nombre: "Orden para Llevar",
+    extras: ["Porciones familiares", "Biria chivo", "Birria de res", "  Tacos de birria", " Quesabirria", "Salsas y tortillas incluidas"],
+  },
+];
+---
+
+<!-- Sección Nuestras Especialidades -->
+<section id="especialidades" class="py-16 bg-gray-300">
+  <h2 class="text-center text-3xl sm:text-4xl font-bold text-red-700 mb-6 relative">
+    Nuestras Especialidades
+    <div class="w-24 h-[3px] bg-red-700 mx-auto mt-2"></div>
+  </h2>
+
+  <div
+
+  class="grid gap-25 sm:grid-cols-1 lg:grid-cols-2 md:max-w-auto md:mx-50 px-5"
+  >
+
+    {menuItems.slice(0, 2).map((item) => (
+      <div class="bg-white rounded-lg shadow-md p-4 text-center">
+        <span class="text-white p-2 px-8 rounded-[25px] uppercase my-4 inline-block bg-gradient-to-r from-red-700 to-red-900 text-sm tracking-wider">
+          {item.tipo}
+        </span>
+        <img
+          src={item.img}
+          alt={item.nombre}
+          class="w-full h-auto max-h-72 object-contain"
+        />
+        <h3 class="text-xl font-bold mt-2">{item.nombre}</h3>
+        {item.desc && <p class="text-gray-600 mt-2">{item.desc}</p>}
+        <ul class="mt-4 space-y-1">
+          {item.extras.map((extra) => (
+            <li class="text-gray-500">{extra}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section id="menu-completo" class="py-16 bg-gray-300">
+  <h2 class="text-center text-3xl sm:text-4xl font-bold text-red-700 mb-6 relative">
+    Menú Completo
+    <div class="w-24 h-[3px] bg-red-700 mx-auto mt-2"></div>
+  </h2>
+
+  <!-- En móvil (por debajo de md) no se limita el ancho, por lo que se usará una columna;
+       en desktop (md en adelante) se aplicarán max-w y centramiento, y la grid tendrá 2 o 3 columnas -->
+  <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:max-w-6xl md:mx-auto px-6">
+    {menuItems.slice(2).map((item) => (
+      <div class="bg-white rounded-lg shadow-md p-4 text-center">
+        <span class="text-white p-2 px-8 rounded-[25px] uppercase my-4 inline-block bg-gradient-to-r from-red-700 to-red-900 text-sm tracking-wider">
+          {item.tipo}
+        </span>
+        <img
+          src={item.img}
+          alt={item.nombre}
+          class="w-full h-auto max-h-72 object-contain mt-2 rounded-md"
+        />
+        <h3 class="text-xl font-bold mt-2">{item.nombre}</h3>
+        {item.desc && <p class="text-gray-600 mt-2">{item.desc}</p>}
+        <ul class="mt-4 space-y-1">
+          {item.extras.map((extra) => (
+            <li class="text-gray-500">{extra}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
